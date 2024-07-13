@@ -9,7 +9,7 @@ export default function Home() {
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=0a23f07fa87648cb9f6182601241007&q=${location}&days=7&aqi=yes&alerts=yes`;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEAHTER_API}&q=${location}&days=7&aqi=yes&alerts=yes`;
 
   const handleSearch = async (e: any) => {
     if (e.key === "Enter") {
@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-start p-24 bg-gradient-to-r from-blue-400 to-blue-100 space-y-8">
       <div className="flex flex-col items-center justify-center w-full space-y-4 text-black">
-        <h1>Weatherino</h1>
+        <h1 className="text-5xl mb-10">Weatherino</h1>
         <Input
           placeholder="Enter city name"
           className="max-w-2xl bg-transparent"
@@ -51,13 +51,9 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full flex flex-col items-center justify-center p-4">
-            <p className="text-7xl">{data.current.temp_c}°C</p>
-            <p className="text-4xl">{data.location.localtime.split(" ")[1]}</p>
+            <p className="text-7xl mb-4">{data.current.temp_c}°C</p>
+            <p className="text-4xl mb-4">{data.location.localtime.split(" ")[1]}</p>
             <p>{data.current.condition.text}</p>
-            <img
-              src={data.current.condition.icon}
-              alt={data.current.condition.text}
-            />
           </div>
           {data.forecast.forecastday.map((day: any) => (
             <>
