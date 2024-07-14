@@ -8,6 +8,7 @@ export default function Home() {
   const [data, setData] = useState<any>({});
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
+  // const [temperature, setTemperature] = useState<Date>();
 
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEAHTER_API}&q=${location}&days=7&aqi=yes&alerts=yes`;
 
@@ -21,12 +22,12 @@ export default function Home() {
         }
         const data = await res.json();
         setData(data);
+        // setTemperature();
         setError("");
       } catch (err) {
         setError("City not found!");
         setData({});
       }
-      console.log(data);
     }
   };
 
@@ -44,6 +45,7 @@ export default function Home() {
       {error && <p>{error}</p>}
       {data.location && (
         <>
+        <div className="self-center flex flex-col">
           <div className="w-full flex flex-col items-center justify-center p-4">
             <p className="text-2xl">{data.location.name}</p>
             <p>
@@ -51,20 +53,36 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full flex flex-col items-center justify-center p-4">
-            <p className="text-7xl mb-4">{data.current.temp_c}°C</p>
-            <p className="text-4xl mb-4">{data.location.localtime.split(" ")[1]}</p>
             <p>{data.current.condition.text}</p>
+            <p className="text-7xl my-4">{data.current.temp_c}°C</p>
+            <p className="text-4xl">
+              {data.location.localtime.split(" ")[1]}
+            </p>
           </div>
-          {data.forecast.forecastday.map((day: any) => (
-            <>
-              <div
-                key={day.date}
-                className="w-4/6 flex self-center items-center flex-row"
-              >
-                <p>{convertDate(day.date)} - {day.day.maxtemp_c}°C - {day.day.mintemp_c}°C - {day.day.condition.text}</p>
-              </div>
-            </>
-          ))}
+        </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 w-full">
+            {data.forecast.forecastday.map(
+              (day: any, index: number) =>
+                index > 0 && (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center justify-center p-4 bg-white/40 rounded-lg"
+                  >
+                    <p className="text-2xl">
+                      {new Date(
+                        day.date
+                      ).toLocaleDateString("en-US", {
+                        timeZone: "GMT",
+                        weekday: "short",
+                      })}
+                    </p>
+                    <p>{convertDate(day.date)}</p>
+                    <img src={day.day.condition.icon} />
+                    <p className="text-2xl mt-4">{day.day.avgtemp_c}°C</p>
+                  </div>
+                )
+            )}
+          </div>
         </>
       )}
     </main>
