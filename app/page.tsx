@@ -6,6 +6,8 @@ import { useState } from "react";
 import Rain from "./components/RainAnimation";
 import Snowflake from "./components/Snowflake";
 import Snow from "./components/SnowAnimation";
+import Cloud from "./components/CloudAnimation";
+import CloudContainer from "./components/CloudAnimation";
 
 export default function Home() {
   const [data, setData] = useState<any>({});
@@ -43,13 +45,15 @@ export default function Home() {
     textColor = "text-white";
   } else {
     bgColor = "bg-gradient-to-tl from-blue-400 to-yellow-50 text-black";
+    bgColor = "bg-gradient-to-t from-blue-950 to-black text-white";
     textColor = "text-black";
   }
 
   return (
     <main className={`relative min-h-screen`}>
-      {climateCondition.includes("rain") && <Rain />}
-      <Snow />
+      {climateCondition.includes("rain") || climateCondition.includes("drizzle") && <Rain />}
+      {climateCondition.includes("snow") && <Snow />}
+      <CloudContainer />
       <div
         className={`flex min-h-screen flex-col items-start ${bgColor} ${textColor} space-y-8 z-10`}
       >

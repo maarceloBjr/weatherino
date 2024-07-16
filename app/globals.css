@@ -1,125 +1,209 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 222.2 84% 4.9%;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-      --card: 0 0% 100%;
-      --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-      --popover: 0 0% 100%;
-      --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-      --primary: 222.2 47.4% 11.2%;
-      --primary-foreground: 210 40% 98%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-      --secondary: 210 40% 96.1%;
-      --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-      --muted: 210 40% 96.1%;
-      --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-      --accent: 210 40% 96.1%;
-      --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-      --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%;
-      --ring: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --background: 222.2 84% 4.9%;
-      --foreground: 210 40% 98%;
-
-      --card: 222.2 84% 4.9%;
-      --card-foreground: 210 40% 98%;
-
-      --popover: 222.2 84% 4.9%;
-      --popover-foreground: 210 40% 98%;
-
-      --primary: 210 40% 98%;
-      --primary-foreground: 222.2 47.4% 11.2%;
-
-      --secondary: 217.2 32.6% 17.5%;
-      --secondary-foreground: 210 40% 98%;
-
-      --muted: 217.2 32.6% 17.5%;
-      --muted-foreground: 215 20.2% 65.1%;
-
-      --accent: 217.2 32.6% 17.5%;
-      --accent-foreground: 210 40% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 210 40% 98%;
-
-      --border: 217.2 32.6% 17.5%;
-      --input: 217.2 32.6% 17.5%;
-      --ring: 212.7 26.8% 83.9%;
-    }
+    --radius: 0.5rem;
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
-  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-  .rain {
-    position: absolute;
-    width: 2px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.6);
-    animation: fall linear infinite;
-    pointer-events: none;
-  }
-  
-  @keyframes fall {
-    0% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(100vh);
-    }
-  }
-  
-  .animate-snowflake {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    animation: snowfall infinite;
-  }
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-  @keyframes snowfall {
-    0% {
-      transform: translateY(-10px) translateX(-10px);
-    }
-    50% {
-      transform: translateX(50vh) translateY(50vh);
-    }
-    100% {
-      transform: translateY(100vh) translateX(10px);
-    }
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
-/*   
-  @keyframes snowsway {
-    0% {
-      transform: translateX(-10px);
-    }
-    50% {
-      transform: translateX(10px);
-    }
-    100% {
-      transform: translateX(-10px);
-    }
-  } */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.rain {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.animate-snowflake {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  animation: snowfall infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(100vh) translateX(20vh);
+  }
+}
+
+.sky {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+}
+
+.cloud-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@keyframes animateCloud {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.cloud-1 {
+  transform: scale(1);
+  z-index: 0;
+  top: 0vh;
+  height: 10vh;
+  overflow: visible;
+  animation: animateCloud 10s linear infinite 1s; /* Adjust the duration and delay manually */
+}
+
+.cloud-2
+ {
+  transform: scale(1);
+  z-index: 0;
+  top: 0vh;
+  height: 20vh;
+  overflow: visible;
+  animation: animateCloud 5s linear infinite 1s; /* Adjust the duration and delay manually */
+}
+
+.cloud-3
+ {
+  transform: scale(1);
+  z-index: 0;
+  top: 0vh;
+  height: 30vh;
+  overflow: visible;
+  animation: animateCloud 20s linear infinite 1s; /* Adjust the duration and delay manually */
+}
+
+.cloud-part-1
+ {
+  width: 400px; /* Adjust manually */
+  height: 150px; /* Adjust manually */
+  border-radius: 50%;
+  position: absolute;
+  top: 10vh; /* Adjust manually */
+  left: -50vw;
+}
+
+.cloud-part-2 {
+  width: 300px; /* Adjust manually */
+  height: 100px; /* Adjust manually */
+  border-radius: 50%;
+  position: absolute;
+  top: 40vh; /* Adjust manually */
+  left: -50vw;
+  opacity: 0.7;
+}
+
+.cloud-part-3 {
+  width: 300px; /* Adjust manually */
+  height: 100px; /* Adjust manually */
+  border-radius: 50%;
+  position: absolute;
+  top: 40vh; /* Adjust manually */
+  left: -50vw;
+  opacity: 0.7;
+}
+
+#cloud-back {
+  filter: url(#filter-back);
+  box-shadow: 300px 300px 30px -20px #fff;
+}
+
+#cloud-mid {
+  filter: url(#filter-mid);
+  box-shadow: 300px 340px 70px -60px rgba(158, 168, 179, 0.3);
+}
+
+#cloud-front {
+  filter: url(#filter-front);
+  box-shadow: 300px 370px 60px -100px rgba(0, 0, 0, 0.2);
+}

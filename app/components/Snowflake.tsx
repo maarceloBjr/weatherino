@@ -9,7 +9,7 @@ interface SnowflakeProps {
 
 const Snowflake: React.FC<SnowflakeProps> = ({ left, animationDelay, duration }) => {
   return (
-    <div className="animate-snowflake absolute" style={{ left, animationDelay, animationDuration: duration, }}>
+    <div className="animate-snowflake absolute top-[-20px]" style={{ left, animationDelay, animationDuration: duration, }}>
       <svg
         fill="#dbebeb"
         version="1.1"
@@ -20,12 +20,12 @@ const Snowflake: React.FC<SnowflakeProps> = ({ left, animationDelay, duration })
         stroke="#dbebeb"
         
       >
-        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+        <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
         <g
           id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
 
         <g id="SVGRepo_iconCarrier">
