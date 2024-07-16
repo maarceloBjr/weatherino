@@ -40,22 +40,18 @@ export default function Home() {
     }
   };
 
-  if (time <= 5 || time >= 19) {
-    bgColor = "bg-gradient-to-t from-blue-950 to-black text-white";
-    textColor = "text-white";
-  } else {
-    bgColor = "bg-gradient-to-tl from-blue-400 to-yellow-50 text-black";
-    bgColor = "bg-gradient-to-t from-blue-950 to-black text-white";
-    textColor = "text-black";
-  }
-
   return (
     <main className={`relative min-h-screen`}>
-      {climateCondition.includes("rain") || climateCondition.includes("drizzle") && <Rain />}
+      {climateCondition.includes("rain") ||
+        (climateCondition.includes("drizzle") && <Rain />)}
       {climateCondition.includes("snow") && <Snow />}
-      <CloudContainer />
+      {climateCondition.includes("cloud") && <CloudContainer />}
       <div
-        className={`flex min-h-screen flex-col items-start ${bgColor} ${textColor} space-y-8 z-10`}
+        className={`flex min-h-screen flex-col items-start transition-colors duration-300 ${
+          time <= 5 || time >= 19
+            ? "bg-gradient-to-t from-blue-950 to-black text-white"
+            : "bg-gradient-to-tl from-blue-400 to-yellow-50 text-black"
+        } space-y-8 z-10`}
       >
         <div
           className={`flex flex-col items-center justify-center w-full space-y-4 pt-24 ${textColor} z-10`}
