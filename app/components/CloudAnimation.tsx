@@ -5,7 +5,7 @@ interface CloudProps {
   }
   
   const Cloud: React.FC<CloudProps> = ({ num }) => {
-    console.log(num);
+    console.log(`cloud-${num}`);
     return (
       <div className={`cloud-${num}`}>
         <div className={`cloud-part-${num}`} id="cloud-back"></div>
@@ -15,7 +15,7 @@ interface CloudProps {
     );
   };
 const Sky = () => {
-  const clouds = Array.from({ length: 1 }, (_, index) => index + 1);
+  const clouds = Array.from({ length: 6 }, (_, index) => index + 1);
 
   return (
     <div className="sky">
